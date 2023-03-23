@@ -1,0 +1,85 @@
+start_dict = {
+    "NSW": "NSW",
+    "New South Wales": "NSW",
+    "QLD": "QLD",
+    "Queensland": "QLD",
+    "VIC": "VIC",
+    "SA": "SA",    
+    "TAS": "TAS",
+    "WA": "WA",
+    "ACT": "ACT",
+    "NT": "NT",
+    "Western Australia": "WA",
+    "Northern Territory": "NT",
+    "Tasmania": "TAS",
+    "Victoria": "VIC",
+    "South Australia": "SA",
+    
+    "Gold Coast": "QLD",
+    "Nelly Bay": "QLD",
+    "Shute Harbour": "QLD",
+    "Sea World": "QLD",
+    "Redland": "QLD",
+    "Great Barrier": "QLD",
+    "Coral Sea": "QLD",
+
+    
+    
+    "RIVER BOULEVARD RICHMOND": "VIC",
+    "William St/Collins": "VIC",
+
+}
+whole["StartState"] = None
+for key in start_dict.keys():
+    whole.loc[whole["startAddress"].str.contains(key) & whole["StartState"].isnull(), "StartState"] = start_dict[key]
+
+
+
+
+
+
+
+
+
+
+
+
+end_dict = {
+    "NSW": "NSW",
+    "New South Wales": "NSW",
+    "QLD": "QLD",
+    "Queensland": "QLD",
+    "SA": "SA",
+    "South Australia": "SA",
+    "TAS": "TAS",
+    "Tasmania": "TAS",
+    "VIC": "VIC",
+    "Victoria": "VIC",
+    "NT": "NT", 
+    "Northern Territory": "NT",
+    "ACT": "ACT", 
+    "Australian Capital Territory": "ACT",
+    "WA": "WA",
+    "Western Australia": "WA",
+    
+    
+    
+    "Canberra": "ACT",
+    "St Kilda Marina": "VIC",
+    "Gold Coast": "QLD",
+    "Terminal, Bilinga": "QLD",
+    "Tea Tree Bay": "QLD",
+    "Nelly Bay": "QLD",
+    "Shute Harbour": "QLD",
+    "Sea World": "QLD",
+    "Coral": "QLD",
+    "Great Barrier": "QLD",
+    "Redland": "QLD",
+    "Fitzwilliam St": "NSW",
+    "Byron Bay": "NSW",  
+
+}
+whole["EndState"] = None
+
+for key in end_dict.keys():
+    whole.loc[whole["endAddress"].str.contains(key) & whole["EndState"].isnull(), "EndState"] = end_dict[key]
